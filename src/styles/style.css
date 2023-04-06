@@ -12,10 +12,13 @@
 }
 
 .board-container {
-    grid-column: 1;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.board-container {
+    grid-column: 1;
 }
 
 .board {
@@ -41,4 +44,31 @@
 
 .light {
     background: rgb(235, 184, 137);
+}
+
+.selected {
+    background: red;
+}
+
+.content-container {
+    grid-column: 2;
+    margin-top: 20vh;
+}
+
+.content {
+    height: 150px;
+    width: clamp(100px, 45%);
+}
+
+.content > * {
+    margin: 1rem;
+}
+
+ul {
+    list-style-type: none;
+    padding: 1rem;
+}
+
+button {
+    padding: 5px;
 }
