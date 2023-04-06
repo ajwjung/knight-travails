@@ -1,3 +1,4 @@
+import GameBoard from "./modules/gameboard";
 import "./styles/style.css";
 
-console.log("Hello");
+GameBoard.createBoard();
