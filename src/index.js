@@ -1,4 +1,11 @@
+import DisplayChanges from "./modules/display";
 import GameBoard from "./modules/gameboard";
 import "./styles/style.css";
 
-GameBoard.createBoard();
+const Game = (() => {
+    GameBoard.createBoard();
+
+    document.body.addEventListener("click", (e) => {
+        DisplayChanges.chooseStartHandler(e);
+    })
+})();
