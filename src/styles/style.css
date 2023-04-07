@@ -65,6 +65,10 @@ body {
     background: rgb(90, 161, 219);
 }
 
+.intermediate-square {
+    background: rgb(132, 112, 187)
+}
+
 .content-container {
     grid-column: 2;
     margin-top: 20vh;

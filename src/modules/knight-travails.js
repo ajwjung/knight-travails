@@ -37,20 +37,42 @@ const KnightTravails = (() => {
         return graph;
     };
 
-    function formatPath(path) {
-        const formattedPath = path.map(square => `\t[${square}]\n`).join("");
+    const formatPath = (path) => {
+        const formattedPath = path.map(square => `\t[${square}]\n`).join(" ->");
         
         return `=> You made it in ${path.length - 1} moves! Here's your path: \n${formattedPath}`;
     };
 
-    function checkArrayPresent(sourceArr, searchArr) {
+    const getIndexOfCoordinates = (coord) => {
+        const boardSquares = boardCoordinates();
+
+        for (let i = 0; i < 64; i += 1) {
+            if (boardSquares[i][0] === coord[0] &&
+                boardSquares[i][1] === coord[1]) { 
+                return i;
+            }
+        }
+    };
+
+    const highlightPathSquares = (path) => {
+        path.forEach((square, i) => {
+            setTimeout(() => {
+                const squareId = `square${getIndexOfCoordinates(square)}`; // get index of square
+                console.log(squareId);
+                const squareDiv = document.getElementById(squareId);
+                squareDiv.classList.add("intermediate-square");
+            }, i * 1000)
+        })
+    };
+
+    const checkArrayPresent = (sourceArr, searchArr) => {
         for (const coordinates of sourceArr) {
             return (coordinates[0] === searchArr[0] &&
                 coordinates[1] === searchArr[1])
         }
-    }
+    };
 
-    function getShortestPath(start, end) {
+    const getShortestPath = (start, end) => {
         console.log(start, end);
         const queue = [{ square: start, path: [start] }];
         const visited = [];
@@ -59,6 +81,7 @@ const KnightTravails = (() => {
             const { square, path } = queue.shift();
 
             if (square[0] === end[0] && square[1] === end[1]) {
+                highlightPathSquares(path);
                 return formatPath(path);
             }
 
