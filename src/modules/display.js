@@ -9,6 +9,23 @@ const DisplayChanges = (() => {
     let endChosen = false;
     let startSquare;
     let endSquare;
+
+    const updateMessageBox = (scenario) => {
+        switch (scenario) {
+            case 1: 
+            case 4: 
+                msgBox.textContent = "Click on a square to select the knight's ending position or click on the same starting square to reset the starting position.";
+                break;
+            case 2:
+                msgBox.textContent = "Click on a square to select the knight's starting position.";
+                break;
+            case 3:
+                msgBox.textContent = "Click the button to find the shortest path or click on the same ending square to reset the ending position.";
+                break;
+            default:
+                msgBox.textContent = "Click on a square to select the knight's starting position.";
+        }
+    };
     
     const choosePositionsHandler = (e) => {
         // First time choosing start position
@@ -17,7 +34,7 @@ const DisplayChanges = (() => {
             startChosen = true;
             const squareCoordinates = KnightTravails.boardCoordinates()[startSquare];
             startTextBox.textContent = `[${squareCoordinates}]`;
-            msgBox.textContent = "Click on a square to select the knight's ending position or click on the same starting square to reset the starting position.";
+            updateMessageBox(1);
             e.target.classList.toggle("start-selected");
             // De-select to redo start position
         } else if (startChosen && !endChosen &&
@@ -26,25 +43,25 @@ const DisplayChanges = (() => {
             startSquare = "";
             e.target.classList.toggle("start-selected");
             startTextBox.textContent = "";
-            msgBox.textContent = "Click on a square to select the knight's starting position.";
+            updateMessageBox(2);
             // First time choosing end position
         } else if (startChosen && !endChosen && e.target.classList.contains("square")) {
             endSquare = e.target.id.substr(6);
             endChosen = true;
             const squareCoordinates = KnightTravails.boardCoordinates()[endSquare];
             endTextBox.textContent = `[${squareCoordinates}]`;
-            msgBox.textContent = "Click on the button to find the shortest path or click on the same ending square to reset the ending position.";
+            updateMessageBox(3);
             e.target.classList.toggle("end-selected");
             // De-select to redo end position
         } else if (startChosen && endChosen &&
             endSquare === e.target.id.substr(6) && e.target.classList.contains("square")) {
-                endChosen = false;
-                endSquare = "";
-                e.target.classList.toggle("end-selected");
-                endTextBox.textContent = "";
-                msgBox.textContent = "Click on a square to select the knight's ending position or click on the same starting square to reset the starting position.";
-            }
+            endChosen = false;
+            endSquare = "";
+            e.target.classList.toggle("end-selected");
+            endTextBox.textContent = "";
+            updateMessageBox(4);
         }
+    }
 
     return { choosePositionsHandler }
 })();
