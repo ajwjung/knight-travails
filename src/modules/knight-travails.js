@@ -1,5 +1,5 @@
 const KnightTravails = (() => {
-    // Array of coordinates
+    // Array of coordinates corresponding to each square on the board
     const boardCoordinates = () => {
         const boardSquares = [];
     
@@ -10,9 +10,34 @@ const KnightTravails = (() => {
         }
 
         return boardSquares;
-    }
+    };
 
-    return { boardCoordinates };
+    const createAdjacencyList = () => {
+        const allCoordinates = boardCoordinates();
+
+        const graph = allCoordinates.map(coordinates => {
+            const adjList = [
+                [coordinates[0] - 1, coordinates[1] - 2],
+                [coordinates[0] + 1, coordinates[1] - 2],
+                [coordinates[0] - 2, coordinates[1] - 1],
+                [coordinates[0] + 2, coordinates[1] - 1],
+                [coordinates[0] - 2, coordinates[1] + 1],
+                [coordinates[0] + 2, coordinates[1] + 1],
+                [coordinates[0] - 1, coordinates[1] + 2],
+                [coordinates[0] + 1, coordinates[1] + 2]
+            ]
+
+            const filteredList = adjList.filter(coord => 
+                coord[0] > 0 && coord[0] < 9 &&
+                coord[1] > 0 && coord[1] < 9)
+
+            return { adjList: filteredList, coordinates };
+        })
+
+        return graph;
+    };
+
+    return { boardCoordinates, createAdjacencyList };
 })();
 
 export default KnightTravails;
