@@ -66,12 +66,12 @@ const Display = (() => {
         }
     };
 
-    const updatePathBox = () => {
+    const updatePathBox = (reset) => {
         const startPosition = document.getElementById("start-position").textContent;
         const endPosition = document.getElementById("end-position").textContent;
     
         const shortestPath = KnightTravails.getShortestPath(JSON.parse(startPosition), JSON.parse(endPosition));
-        KnightTravails.highlightPathSquares(shortestPath);
+        KnightTravails.highlightPathSquares(shortestPath, reset);
         const [pathMsg, fullPath] = KnightTravails.formatPath(shortestPath);
         pathBox.textContent = pathMsg;
         path.textContent = fullPath;

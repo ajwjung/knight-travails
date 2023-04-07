@@ -55,13 +55,17 @@ const KnightTravails = (() => {
         }
     };
 
-    const highlightPathSquares = (path) => {
+    const highlightPathSquares = (path, reset) => {
         path.forEach((square, i) => {
-            setTimeout(() => {
+            const timeoutId = setTimeout(() => {
                 const squareId = `square${getIndexOfCoordinates(square)}`;
                 const squareDiv = document.getElementById(squareId);
                 squareDiv.classList.add("intermediate-square");
             }, i * 1000)
+
+            if (reset) {
+                clearTimeout(timeoutId);
+            }
         })
     };
 

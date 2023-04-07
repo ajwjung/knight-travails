@@ -5,6 +5,9 @@ import "./styles/style.css";
 const Game = (() => {
     const getPathBtn = document.getElementById("get-path");
     const restartBtn = document.getElementById("restart");
+    const reset = false;
+
+    const toggleReset = () => !!reset;
 
     GameBoard.createBoard();
 
@@ -13,10 +16,11 @@ const Game = (() => {
     });
 
     getPathBtn.addEventListener("click", () => {
-        Display.updatePathBox();
+        Display.updatePathBox(reset);
     });
 
     restartBtn.addEventListener("click", () => {
+        toggleReset();
         Display.resetSelections();
     })
 })();
