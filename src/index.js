@@ -6,6 +6,6 @@ const Game = (() => {
     GameBoard.createBoard();
 
     document.body.addEventListener("click", (e) => {
-        DisplayChanges.chooseStartHandler(e);
+        DisplayChanges.choosePositionsHandler(e);
     })
 })();
