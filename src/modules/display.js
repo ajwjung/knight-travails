@@ -1,6 +1,6 @@
 import KnightTravails from "./knight-travails";
 
-const DisplayChanges = (() => {
+const Display = (() => {
     const msgBox = document.querySelector(".message-box");
     const startTextBox = document.getElementById("start-position");
     const endTextBox = document.getElementById("end-position");
@@ -61,9 +61,17 @@ const DisplayChanges = (() => {
             endTextBox.textContent = "";
             updateMessageBox(4);
         }
-    }
+    };
 
-    return { choosePositionsHandler }
+    const updatePathBox = () => {
+        const pathBox = document.querySelector(".path");
+        const startPosition = document.getElementById("start-position").textContent;
+        const endPosition = document.getElementById("end-position").textContent;
+
+        pathBox.textContent = KnightTravails.getShortestPath(JSON.parse(startPosition), JSON.parse(endPosition));
+    };
+
+    return { choosePositionsHandler, updatePathBox }
 })();
 
-export default DisplayChanges;
+export default Display;

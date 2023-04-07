@@ -51,6 +51,7 @@ const KnightTravails = (() => {
     }
 
     function getShortestPath(start, end) {
+        console.log(start, end);
         const queue = [{ square: start, path: [start] }];
         const visited = [];
 

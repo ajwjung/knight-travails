@@ -1,14 +1,17 @@
-import DisplayChanges from "./modules/display";
+import Display from "./modules/display";
 import GameBoard from "./modules/gameboard";
-import KnightTravails from "./modules/knight-travails";
 import "./styles/style.css";
 
 const Game = (() => {
+    const btn = document.querySelector("button");
+
     GameBoard.createBoard();
 
     document.body.addEventListener("click", (e) => {
-        DisplayChanges.choosePositionsHandler(e);
-    })
+        Display.choosePositionsHandler(e);
+    });
 
-    console.log(KnightTravails.createAdjacencyList());
+    btn.addEventListener("click", () => {
+        Display.updatePathBox();
+    });
 })();
