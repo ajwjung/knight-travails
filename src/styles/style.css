@@ -20,6 +20,15 @@ body {
     width: 70vw;
     display: grid;
     grid-template-columns: 3fr 1fr;
+    grid-template-rows: 1fr 5fr;
+}
+
+h1 {
+    grid-row: 1;
+    grid-column: 1 / span 2;
+    font-size: 3rem;
+    text-align: center;
+    padding-top: 8vh;
 }
 
 .board-container {
@@ -30,6 +39,7 @@ body {
 
 .board-container {
     grid-column: 1;
+    grid-row: 2;
 }
 
 .board {
@@ -71,7 +81,8 @@ body {
 
 .content-container {
     grid-column: 2;
-    margin-top: 20vh;
+    grid-row: 2;
+    margin-top: 10vh;
 }
 
 .content {
@@ -88,6 +99,6 @@ ul {
     padding: 1rem;
 }
 
-button {
+#get-path {
     padding: 5px;
 }
