@@ -4,6 +4,8 @@ const Display = (() => {
     const msgBox = document.querySelector(".message-box");
     const startTextBox = document.getElementById("start-position");
     const endTextBox = document.getElementById("end-position");
+    const pathBox = document.querySelector(".path-text");
+    const path = document.querySelector(".path")
 
     let startChosen = false;
     let endChosen = false;
@@ -24,6 +26,7 @@ const Display = (() => {
                 break;
             default:
                 msgBox.textContent = "Click on a square to select the knight's starting position.";
+                break;
         }
     };
     
@@ -64,8 +67,6 @@ const Display = (() => {
     };
 
     const updatePathBox = () => {
-        const pathBox = document.querySelector(".path-text");
-        const path = document.querySelector(".path")
         const startPosition = document.getElementById("start-position").textContent;
         const endPosition = document.getElementById("end-position").textContent;
     
