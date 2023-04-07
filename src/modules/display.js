@@ -64,11 +64,16 @@ const Display = (() => {
     };
 
     const updatePathBox = () => {
-        const pathBox = document.querySelector(".path");
+        const pathBox = document.querySelector(".path-text");
+        const path = document.querySelector(".path")
         const startPosition = document.getElementById("start-position").textContent;
         const endPosition = document.getElementById("end-position").textContent;
-
-        pathBox.textContent = KnightTravails.getShortestPath(JSON.parse(startPosition), JSON.parse(endPosition));
+    
+        const shortestPath = KnightTravails.getShortestPath(JSON.parse(startPosition), JSON.parse(endPosition));
+        KnightTravails.highlightPathSquares(shortestPath);
+        const [pathMsg, fullPath] = KnightTravails.formatPath(shortestPath);
+        pathBox.textContent = pathMsg;
+        path.textContent = fullPath;
     };
 
     return { choosePositionsHandler, updatePathBox }

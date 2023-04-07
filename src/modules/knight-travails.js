@@ -38,9 +38,10 @@ const KnightTravails = (() => {
     };
 
     const formatPath = (path) => {
+        const pathMessage = `=> You made it in ${path.length - 1} moves! Here's your path:`
         const formattedPath = path.map(square => `\t[${square}]\n`).join(" ->");
-        
-        return `=> You made it in ${path.length - 1} moves! Here's your path: \n${formattedPath}`;
+
+        return [pathMessage, formattedPath];
     };
 
     const getIndexOfCoordinates = (coord) => {
@@ -81,8 +82,7 @@ const KnightTravails = (() => {
             const { square, path } = queue.shift();
 
             if (square[0] === end[0] && square[1] === end[1]) {
-                highlightPathSquares(path);
-                return formatPath(path);
+                return path;
             }
 
             const adjacencyList = createAdjacencyList().find(position => 
@@ -100,7 +100,7 @@ const KnightTravails = (() => {
         }
     }
 
-    return { boardCoordinates, getShortestPath };
+    return { boardCoordinates, formatPath, highlightPathSquares, getShortestPath };
 })();
 
 export default KnightTravails;

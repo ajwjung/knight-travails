@@ -13,5 +13,6 @@ const Game = (() => {
 
     btn.addEventListener("click", () => {
         Display.updatePathBox();
+        
     });
 })();
