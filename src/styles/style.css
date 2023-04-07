@@ -46,8 +46,12 @@
     background: rgb(235, 184, 137);
 }
 
-.selected {
-    background: red;
+.start-selected {
+    background: rgb(221, 79, 79);
+}
+
+.end-selected {
+    background: rgb(90, 161, 219);
 }
 
 .content-container {
