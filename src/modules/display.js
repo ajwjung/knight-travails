@@ -76,7 +76,24 @@ const Display = (() => {
         path.textContent = fullPath;
     };
 
-    return { choosePositionsHandler, updatePathBox }
+    const resetSelections = () => {
+        startChosen = false;
+        endChosen = false;
+        startSquare = "";
+        endSquare = "";
+        startTextBox.textContent = "";
+        endTextBox.textContent = "";
+        
+        const allSquares = document.body.querySelectorAll(".square");
+
+        allSquares.forEach(square => {
+            square.classList.remove("start-selected");
+            square.classList.remove("end-selected");
+            square.classList.remove("intermediate-square");
+        })
+    };
+
+    return { choosePositionsHandler, updatePathBox, resetSelections }
 })();
 
 export default Display;

@@ -3,7 +3,8 @@ import GameBoard from "./modules/gameboard";
 import "./styles/style.css";
 
 const Game = (() => {
-    const btn = document.querySelector("button");
+    const getPathBtn = document.getElementById("get-path");
+    const restartBtn = document.getElementById("restart");
 
     GameBoard.createBoard();
 
@@ -11,8 +12,11 @@ const Game = (() => {
         Display.choosePositionsHandler(e);
     });
 
-    btn.addEventListener("click", () => {
+    getPathBtn.addEventListener("click", () => {
         Display.updatePathBox();
-        
     });
+
+    restartBtn.addEventListener("click", () => {
+        Display.resetSelections();
+    })
 })();
