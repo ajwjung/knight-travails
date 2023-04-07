@@ -58,8 +58,7 @@ const KnightTravails = (() => {
     const highlightPathSquares = (path) => {
         path.forEach((square, i) => {
             setTimeout(() => {
-                const squareId = `square${getIndexOfCoordinates(square)}`; // get index of square
-                console.log(squareId);
+                const squareId = `square${getIndexOfCoordinates(square)}`;
                 const squareDiv = document.getElementById(squareId);
                 squareDiv.classList.add("intermediate-square");
             }, i * 1000)
@@ -74,7 +73,6 @@ const KnightTravails = (() => {
     };
 
     const getShortestPath = (start, end) => {
-        console.log(start, end);
         const queue = [{ square: start, path: [start] }];
         const visited = [];
 
