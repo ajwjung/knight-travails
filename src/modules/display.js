@@ -82,8 +82,11 @@ const Display = (() => {
         endChosen = false;
         startSquare = "";
         endSquare = "";
+        updateMessageBox();
         startTextBox.textContent = "";
         endTextBox.textContent = "";
+        pathBox.textContent = "";
+        path.textContent = "";
         
         const allSquares = document.body.querySelectorAll(".square");
 
