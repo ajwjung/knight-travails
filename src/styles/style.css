@@ -5,6 +5,7 @@
     --light-brown: rgb(116, 65, 18);
     --cream: rgb(235, 184, 137);
     --ivory: rgb(240, 225, 211);
+    --hover-color: rgb(196, 120, 49);
     --padding: 1rem;
 }
 
@@ -13,7 +14,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Vollkorn', serif;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     color: var(--dark-brown);
 }
 
@@ -28,7 +29,7 @@ body {
     height: 100vh;
     width: 70vw;
     display: grid;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 2fr 1fr;
     grid-template-rows: 1fr 5fr;
 }
 
@@ -96,10 +97,6 @@ h1 {
 
 .content {
     height: min-content;
-    width: clamp(100px, 45%);
-    background: rgb(245, 205, 167);
-    border: 5px double var(--light-brown);
-    padding: var(--padding);
 }
 
 .content > * {
@@ -127,5 +124,5 @@ ul {
 
 #get-path:hover,
 #restart:hover {
-    background: rgb(196, 120, 49);
+    background: var(--hover-color);
 }
