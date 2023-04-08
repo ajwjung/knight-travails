@@ -55,18 +55,26 @@ const KnightTravails = (() => {
         }
     };
 
-    const highlightPathSquares = (path, reset) => {
-        path.forEach((square, i) => {
-            const timeoutId = setTimeout(() => {
-                const squareId = `square${getIndexOfCoordinates(square)}`;
-                const squareDiv = document.getElementById(squareId);
-                squareDiv.classList.add("intermediate-square");
-            }, i * 1000)
+    let highlightTimeouts;
 
-            if (reset) {
-                clearTimeout(timeoutId);
+    const highlightPathSquares = (path, reset) => {
+        highlightTimeouts = [];
+
+        for (let i = 0; i < path.length; i += 1) {
+            if (!reset) {
+                highlightTimeouts.push(setTimeout(() => {
+                    const squareId = `square${getIndexOfCoordinates(path[i])}`;
+                    const squareDiv = document.getElementById(squareId);
+                    squareDiv.classList.add("intermediate-square");
+                }, i * 1000))
+            } else {
+                break;
             }
-        })
+        }
+    };
+
+    const stopHighlights = () => {
+        if (highlightTimeouts) highlightTimeouts.forEach(clearTimeout);
     };
 
     const checkArrayPresent = (sourceArr, searchArr) => {
@@ -102,7 +110,8 @@ const KnightTravails = (() => {
         }
     }
 
-    return { boardCoordinates, formatPath, highlightPathSquares, getShortestPath };
+    return { boardCoordinates, formatPath, stopHighlights,
+        highlightPathSquares, getShortestPath };
 })();
 
 export default KnightTravails;

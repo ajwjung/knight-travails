@@ -87,6 +87,7 @@ const Display = (() => {
         endTextBox.textContent = "";
         pathBox.textContent = "";
         path.textContent = "";
+        KnightTravails.stopHighlights();
         
         const allSquares = document.body.querySelectorAll(".square");
 
