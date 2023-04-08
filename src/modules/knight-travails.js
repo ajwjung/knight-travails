@@ -38,7 +38,7 @@ const KnightTravails = (() => {
     };
 
     const formatPath = (path) => {
-        const pathMessage = `=> You made it in ${path.length - 1} moves! Here's your path:`
+        const pathMessage = `You made it in ${path.length - 1} moves! Here's your path:`
         const formattedPath = path.map(square => `\t[${square}]\n`).join(" ->");
 
         return [pathMessage, formattedPath];
