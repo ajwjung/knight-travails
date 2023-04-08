@@ -1,128 +1,128 @@
-@import url('https://fonts.googleapis.com/css2?family=Vollkorn&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Vollkorn&display=swap");
 
 :root {
-    --dark-brown: rgb(63, 38, 14);
-    --light-brown: rgb(116, 65, 18);
-    --cream: rgb(235, 184, 137);
-    --ivory: rgb(240, 225, 211);
-    --hover-color: rgb(196, 120, 49);
-    --padding: 1rem;
+  --dark-brown: rgb(63, 38, 14);
+  --light-brown: rgb(116, 65, 18);
+  --cream: rgb(235, 184, 137);
+  --ivory: rgb(240, 225, 211);
+  --hover-color: rgb(196, 120, 49);
+  --padding: 1rem;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Vollkorn', serif;
-    font-size: 1.3rem;
-    color: var(--dark-brown);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Vollkorn", serif;
+  font-size: 1.3rem;
+  color: var(--dark-brown);
 }
 
 body {
-    height: 100vh;
-    width: 100vw;
-    background: var(--ivory);
+  height: 100vh;
+  width: 100vw;
+  background: var(--ivory);
 }
 
 .container {
-    margin: 0 auto;
-    height: 100vh;
-    width: 70vw;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: 1fr 5fr;
+  margin: 0 auto;
+  height: 100vh;
+  width: 70vw;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 5fr;
 }
 
 h1 {
-    grid-row: 1;
-    grid-column: 1 / span 2;
-    font-size: 3rem;
-    text-align: center;
-    padding-top: 8vh;
+  grid-row: 1;
+  grid-column: 1 / span 2;
+  font-size: 3rem;
+  text-align: center;
+  padding-top: 8vh;
 }
 
 .board-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .board-container {
-    grid-column: 1;
-    grid-row: 2;
+  grid-column: 1;
+  grid-row: 2;
 }
 
 .board {
-    border: 5px double var(--light-brown);
-    height: 610px;
-    width: 610px;
+  border: 5px double var(--light-brown);
+  height: 610px;
+  width: 610px;
 }
 
 .row {
-    display: flex;
-    flex-direction: row-reverse;
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 .square {
-    width: 75px;
-    height: 75px;
-    outline: 1px solid white;
+  width: 75px;
+  height: 75px;
+  outline: 1px solid white;
 }
 
 .dark {
-    background: var(--light-brown);
+  background: var(--light-brown);
 }
 
 .light {
-    background: var(--cream);
+  background: var(--cream);
 }
 
 .start-selected {
-    background: rgb(221, 79, 79);
+  background: rgb(221, 79, 79);
 }
 
 .end-selected {
-    background: rgb(90, 161, 219);
+  background: rgb(90, 161, 219);
 }
 
 .intermediate-square {
-    background: rgb(132, 112, 187)
+  background: rgb(132, 112, 187);
 }
 
 .content-container {
-    grid-column: 2;
-    grid-row: 2;
-    padding-top: 10vh;
+  grid-column: 2;
+  grid-row: 2;
+  padding-top: 10vh;
 }
 
 .content {
-    height: min-content;
+  height: min-content;
 }
 
 .content > * {
-    margin: var(--padding);
+  margin: var(--padding);
 }
 
 ul {
-    list-style-type: none;
-    padding-left: calc(var(--padding) * 2);
+  list-style-type: none;
+  padding-left: calc(var(--padding) * 2);
 }
 
 .btn-container {
-    display: flex;
-    gap: var(--padding);
+  display: flex;
+  gap: var(--padding);
 }
 
 #get-path,
 #restart {
-    padding: 5px;
-    background: var(--light-brown);
-    border-radius: 2px;
-    border: 2px solid var(--dark-brown);
-    color: var(--ivory);
+  padding: 5px;
+  background: var(--light-brown);
+  border-radius: 2px;
+  border: 2px solid var(--dark-brown);
+  color: var(--ivory);
 }
 
 #get-path:hover,
 #restart:hover {
-    background: var(--hover-color);
+  background: var(--hover-color);
 }

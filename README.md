@@ -23,7 +23,7 @@ To create an algorithm that finds the shortest path between the starting and end
 
 Click on any square to set the knight's starting position (square highlighted in red), then click on any square to set the knight's ending position (square highlighted in blue). Select the same square again to undo your selection, or hit the "Restart" button to reset the board and path.
 
-Note that you will not be able to select the same square for the start and end positions because I implemented a "click again to deselect" feature. 
+Note that you will not be able to select the same square for the start and end positions because I implemented a "click again to deselect" feature.
 
 ## Author's Notes
 
