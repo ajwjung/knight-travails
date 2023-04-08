@@ -66,11 +66,16 @@ const Display = (() => {
         }
     };
 
+    const coordinatesToArr = (str) => [Number(str.at(1)), Number(str.at(-2))];
+
     const updatePathBox = (reset) => {
-        const startPosition = document.getElementById("start-position").textContent;
-        const endPosition = document.getElementById("end-position").textContent;
+        let startPosition = document.getElementById("start-position").textContent;
+        let endPosition = document.getElementById("end-position").textContent;
     
-        const shortestPath = KnightTravails.getShortestPath(JSON.parse(startPosition), JSON.parse(endPosition));
+        startPosition = coordinatesToArr(startPosition);
+        endPosition = coordinatesToArr(endPosition);
+
+        const shortestPath = KnightTravails.getShortestPath(startPosition, endPosition);
         KnightTravails.highlightPathSquares(shortestPath, reset);
         const [pathMsg, fullPath] = KnightTravails.formatPath(shortestPath);
         pathBox.textContent = pathMsg;
